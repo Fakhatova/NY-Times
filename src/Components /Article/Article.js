@@ -6,10 +6,9 @@ const Article = () => {
 
 
     useEffect(() => {
-        nyTimesData.fetchAlldata().then(data => console.log(data))
+        // nyTimesData.fetchAlldata().then(data => console.log(data))
     }, [])
 
-    
 
     return (
         <main className='article-container'>
