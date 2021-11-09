@@ -8,8 +8,7 @@ import { useQuery } from "react-query";
 
 
 const  App = () => {
-
-  const [topArticles, setTopArticles] = useState(null)
+  const [topArticles, setTopArticles] = useState()
 
   const { isLoading, error, data, isFetching } = useQuery("HomeData", () =>  nyTimesData.fetchAlldata())
 
@@ -18,15 +17,15 @@ const  App = () => {
 
   if (error) return "An error has occurred: " + error.message;
 
-  if(isFetching) return setTopArticles(data.results)
+  if(!isFetching) return setTopArticles(data.results)
 
-  }, [])
+  }, [data, isLoading,error])
 
 
   return (
     <div className="App">
       <NavBar/>
-      <Article topArticles= {topArticles}/>
+      <Article topArticles={topArticles} />
       <Footer/>
     </div>
   );

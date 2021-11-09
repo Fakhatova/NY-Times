@@ -1,16 +1,20 @@
+import Card from "./Card"
+import { useEffect, useState } from "react";
 
+const Article = ({topArticles}) => {
+    const [displayArticles, setDisplayArticles] = useState(null);
 
-const Article = () => {
+ useEffect(() => {
+    if (topArticles) {
+        let result = topArticles.map(article => <Card article={article}/>) 
+        setDisplayArticles(result)
+    }   
+ }, [topArticles])
+    
+
     return (
         <main className='article-container'>
-            <article className='title-container'>
-                <h2 className='article-title'>
-                Article title 
-                </h2>
-            </article>
-            <article className='image-container'>
-
-            </article>
+            {displayArticles}
         </main>
     )
 }
