@@ -19,7 +19,7 @@ const  App = () => {
 
   if(!isFetching) return setTopArticles(data.results)
 
-  }, [data, isLoading,error])
+  }, [data, isLoading,error, isFetching])
 
 
   return (
