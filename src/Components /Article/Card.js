@@ -3,7 +3,7 @@
 const Card = ({article}) => {
     return (
         <section>
-        <article className='title-container'>
+            <article className='title-container'>
                 <h2 className='article-title'>
                     {article.title}
                 </h2>
