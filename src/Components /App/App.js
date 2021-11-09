@@ -5,7 +5,7 @@ import Article from '../Article/Article';
 import { useEffect, useState } from "react";
 import { nyTimesData } from "../../API/ApiCalls";
 import { useQuery } from "react-query";
-import {Route, Routes , useHistory} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 
 
 const  App = () => {
