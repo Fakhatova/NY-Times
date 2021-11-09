@@ -13,4 +13,6 @@
     align-items: center;
     flex-direction: row;
     justify-content: space-evenly;
+    font-family: 'Aladin', cursive, 'Berkshire Swash', cursive, 'Fondamento', cursive;
+    font-size: xxx-large;
 }
