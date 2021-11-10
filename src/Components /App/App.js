@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer';
 import Article from '../Article/Article';
 import { useEffect, useState } from "react";
 import { nyTimesData } from "../../API/ApiCalls";
-import { useQuery } from "react-query";
+import { useQuery, useQueries} from "react-query";
 import {Route, Routes} from 'react-router-dom';
 
 
@@ -12,6 +12,11 @@ const  App = () => {
   const [topArticles, setTopArticles] = useState()
 
   const { isLoading, error, data, isFetching } = useQuery("HomeData", () =>  nyTimesData.fetchAlldata())
+  const [category, setCategory] = useState(null)
+  const results = useQueries([
+    { queryKey: ['HomeData', 1], queryFn: nyTimesData.fetchAlldata() },
+    { queryKey: ['Category', 2], queryFn: nyTimesData.fetchCategory(category) },
+  ])
 
   useEffect(() => {
   if (isLoading) return "Loading...";
@@ -28,7 +33,7 @@ const  App = () => {
       <Routes>
         <Route path="/" element={
         <>
-        <NavBar />
+        <NavBar category={setCategory} />
         <Article topArticles={topArticles} /> 
         <Footer />
         </>
