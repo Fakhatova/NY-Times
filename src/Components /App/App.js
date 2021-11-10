@@ -5,6 +5,7 @@ import Article from '../Article/Article';
 import { useEffect, useState } from "react";
 import { nyTimesData } from "../../API/ApiCalls";
 import { useQuery } from "react-query";
+import {Route, Routes} from 'react-router-dom';
 
 
 const  App = () => {
@@ -24,9 +25,15 @@ const  App = () => {
 
   return (
     <div className="App">
-      <NavBar/>
-      <Article topArticles={topArticles} />
-      <Footer/>
+      <Routes>
+        <Route path="/" element={
+        <>
+        <NavBar />
+        <Article topArticles={topArticles} /> 
+        <Footer />
+        </>
+      }/>
+      </Routes>
     </div>
   );
 }
