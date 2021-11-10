@@ -1,8 +1,7 @@
 import './NavBar.css'
+import { v4 as uuid_v4 } from "uuid";
 
 const NavBar = () => {
-
-    const buttons = () => {
         const categories = [
             'arts', 'automobiles', 'books', 'business', 
             'fashion', 'food', 'health', 'home', 
@@ -11,19 +10,13 @@ const NavBar = () => {
             'science', 'sports', 'sundayreview', 'technology', 
             'theater', 't-magazine', 'travel', 'upshot', 'us', 'world'
         ]
+        let buttons = categories.map(category => <div className='category-container' key={uuid_v4()} ><button >{category}</button> </div>)
 
-    }
     return (
         <header className='header'>
             <nav className='navigation'>
                 <h1 className='title'>The New York Times</h1>
-                <button>arts</button>
-                <button>automobiles</button>
-                <button>books</button>
-                <button>business</button>
-                <button>fashion</button>
-                <button>food</button>
-                <button></button>
+                {buttons}
             </nav>
         </header>
     )
