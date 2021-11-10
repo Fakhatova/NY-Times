@@ -13,10 +13,10 @@ const  App = () => {
 
   const { isLoading, error, data, isFetching } = useQuery("HomeData", () =>  nyTimesData.fetchAlldata())
   const [category, setCategory] = useState(null)
-  const results = useQueries([
-    { queryKey: ['HomeData', 1], queryFn: nyTimesData.fetchAlldata() },
-    { queryKey: ['Category', 2], queryFn: nyTimesData.fetchCategory(category) },
-  ])
+  // const results = useQueries([
+  //   { queryKey: ['HomeData', 1], queryFn: nyTimesData.fetchAlldata() },
+  //   { queryKey: ['Category', 2], queryFn: nyTimesData.fetchCategory(category) },
+  // ])
 
   useEffect(() => {
   if (isLoading) return "Loading...";
@@ -33,7 +33,7 @@ const  App = () => {
       <Routes>
         <Route path="/" element={
         <>
-        <NavBar category={setCategory} />
+        <NavBar setCategory={setCategory} />
         <Article topArticles={topArticles} /> 
         <Footer />
         </>
