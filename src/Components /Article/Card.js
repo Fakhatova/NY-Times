@@ -7,6 +7,8 @@ const Card = ({article}) => {
                 <h2 className='article-title'>
                     {article.title}
                 </h2>
+                <p className ='byLine'>{article.byline}</p>
+                <p className='publish'>{article.published_date}</p>
                 <p className='article-intro'>
                     {article.abstract}
                 </p>

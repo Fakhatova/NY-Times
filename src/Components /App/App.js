@@ -13,7 +13,6 @@ const  App = () => {
     setCategory(val)
   }
 
-
   return (
     <div className="App">
       <Routes>
