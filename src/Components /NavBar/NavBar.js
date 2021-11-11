@@ -9,7 +9,7 @@ const categoryData = await nyTimesData.fetchCategory(category.queryKey[0])
 return categoryData;
 }
 
-const NavBar = ({ setTopArticles, handleClick, category}) => {
+const NavBar = ({ setTopArticles, handleClick, category, setCopyRight}) => {
 
     const useQueryParams = {
         keepPreviousData: true,
@@ -27,8 +27,10 @@ const NavBar = ({ setTopArticles, handleClick, category}) => {
     if (error) return "An error has occurred: " + error.message;
     
     if(!isFetching && data) return setTopArticles(data.results)
+
+    setCopyRight(data.copyright)
     
-    }, [data, isLoading,error, isFetching, category,setTopArticles])
+    }, [data, isLoading,error, isFetching, category,setTopArticles, setCopyRight])
 
 
         const categories = [

@@ -1,10 +1,10 @@
 
 
-const Footer = () => {
+const Footer = ({copyRights}) => {
     return (
         <footer>
             <h5>
-                here will be footer info
+                {copyRights}
             </h5>
         </footer>
     )
