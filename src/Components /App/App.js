@@ -24,6 +24,9 @@ const  App = () => {
         <Footer copyRights={copyright}/>
         </>
       }/>
+      <Route path='/article/'>
+
+      </Route>
       </Routes>
     </div>
   );
