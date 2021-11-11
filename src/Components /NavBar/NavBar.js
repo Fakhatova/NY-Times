@@ -1,6 +1,6 @@
 import './NavBar.css'
 import { v4 as uuid_v4 } from "uuid";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { nyTimesData } from "../../API/ApiCalls";
 import { useQuery} from "react-query";
 
@@ -28,7 +28,7 @@ const NavBar = ({ setTopArticles, handleClick, category}) => {
     
     if(!isFetching && data) return setTopArticles(data.results)
     
-    }, [data, isLoading,error, isFetching, category])
+    }, [data, isLoading,error, isFetching, category,setTopArticles])
 
 
         const categories = [
