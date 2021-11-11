@@ -1,12 +1,52 @@
 import './NavBar.css'
+import { v4 as uuid_v4 } from "uuid";
+import { useEffect, useState } from "react";
+import { nyTimesData } from "../../API/ApiCalls";
+import { useQuery} from "react-query";
 
-const NavBar = () => {
+const fetchCategory = async (category) => {
+const categoryData = await nyTimesData.fetchCategory(category.queryKey[0])
+return categoryData;
+}
+
+const NavBar = ({ setTopArticles, handleClick, category}) => {
+
+    const useQueryParams = {
+        keepPreviousData: true,
+        refetchWindowFocus: false,
+        refetchOnMount: false,
+        staleTime:200000,
+    }
+
+    const { isLoading, error, data, isFetching} = useQuery(category, fetchCategory, useQueryParams)
+
+
+    useEffect(() => {
+    if (isLoading) return "Loading...";
+    
+    if (error) return "An error has occurred: " + error.message;
+    
+    if(!isFetching && data) return setTopArticles(data.results)
+    
+    }, [data, isLoading,error, isFetching, category])
+
+
+        const categories = [
+            'arts', 'books', 'business', 
+            'health', 'movies',
+            'opinion', 'politics', 'realestate',
+            'sports', 'sundayreview', 'technology', 't-magazine', 'travel', 'world'
+        ]
+
+        let buttons = categories.map(category => <button name={category} key={uuid_v4()} onClick={e => handleClick(e.target.name)}>{category.toUpperCase()}</button>)
+        
     return (
         <header className='header'>
             <nav className='navigation'>
                 <h1 className='title'>The New York Times</h1>
-                <input className='searchbar' type='search'>
-                </input>
+                <div className='category-container'>
+                {buttons}
+                </div>
             </nav>
         </header>
     )

@@ -2,25 +2,16 @@ import './App.css';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import Article from '../Article/Article';
-import { useEffect, useState } from "react";
-import { nyTimesData } from "../../API/ApiCalls";
-import { useQuery } from "react-query";
 import {Route, Routes} from 'react-router-dom';
-
+import { useState } from 'react';
 
 const  App = () => {
   const [topArticles, setTopArticles] = useState()
+  const [category, setCategory] = useState('home')
 
-  const { isLoading, error, data, isFetching } = useQuery("HomeData", () =>  nyTimesData.fetchAlldata())
-
-  useEffect(() => {
-  if (isLoading) return "Loading...";
-
-  if (error) return "An error has occurred: " + error.message;
-
-  if(!isFetching) return setTopArticles(data.results)
-
-  }, [data, isLoading,error, isFetching])
+  const handleClick = (val) => {
+    setCategory(val)
+  }
 
 
   return (
@@ -28,7 +19,7 @@ const  App = () => {
       <Routes>
         <Route path="/" element={
         <>
-        <NavBar />
+        <NavBar setTopArticles={setTopArticles} handleClick={handleClick} category={category} /> 
         <Article topArticles={topArticles} /> 
         <Footer />
         </>
