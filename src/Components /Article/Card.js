@@ -1,6 +1,7 @@
-
+import { Link } from "react-router-dom";
 
 const Card = ({article}) => {
+    const url = article.short_url
     return (
         <section>
             <article className='title-container'>
@@ -10,9 +11,10 @@ const Card = ({article}) => {
                 <p className='article-intro'>
                     {article.abstract}
                 </p>
+                <button><a target="_blank" href={url}>View Article</a></button>
             </article>
             <article className='image-container'>
-            <img src={article.multimedia[0].url} alt={article.multimedia[0].type}/>
+           {article && article.multimedia && <img src={article.multimedia[0].url} alt={article.multimedia[0].type}/>}
             </article>
         </section>
     )
