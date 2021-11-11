@@ -6,11 +6,13 @@
 }
 
 .article-container {
+    margin-top: 9px;
+    border-top: solid 1px black;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
-    align-content: center;
 }
 
 section {
@@ -31,7 +33,7 @@ section {
     align-items: center;
 }
 
-.article-title {
+/* .article-title {
     font-size: xx-large;
 
 }
@@ -43,4 +45,20 @@ section {
 
 img {
     width: 500px;
+} */
+
+.intro-card {
+    display: flex;
+    width: 50%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-title {
+    font-size: larger;
+}
+
+.intro-image {
+    width: 200px;
 }
