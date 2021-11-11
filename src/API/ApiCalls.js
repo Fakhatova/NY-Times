@@ -5,7 +5,6 @@ export const nyTimesData = {
         .then(res => res.json())
     },
     fetchCategory: async (category) => {
-        console.log(category)
         return await fetch(`https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=EuYlii9tQVOlEKehvfy52Y7sVR0k1hRP`)
         .then(res => res.json())
     }
