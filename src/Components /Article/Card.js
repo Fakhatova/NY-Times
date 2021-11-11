@@ -16,6 +16,7 @@ const Card = ({article}) => {
             </article>
             <article className='image-container'>
             {article && article.multimedia && <img src={article.multimedia[0].url} alt={article.multimedia[0].type}/>}
+            <p className='copyrights'>{article.multimedia[0].copyright}</p>
             </article>
         </section>
     )
