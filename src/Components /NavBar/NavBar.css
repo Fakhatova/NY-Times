@@ -24,5 +24,13 @@
 }
 
 .category-container {
-    background: blanchedalmond;
+    background: #ffebcd00;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+button {
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
 }

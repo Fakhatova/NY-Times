@@ -4,7 +4,6 @@ import { v4 as uuid_v4 } from "uuid";
 import { Link } from "react-router-dom";
 
 const Article = ({topArticles, setArticle}) => {
-    // const [displayArticles, setDisplayArticles] = useState(null);
     const [title, setTitle] = useState(null)
 
     useEffect(() => {

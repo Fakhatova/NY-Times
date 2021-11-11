@@ -37,7 +37,7 @@ const NavBar = ({ setTopArticles, handleClick, category, setCopyRight}) => {
             'arts', 'books', 'business', 
             'health', 'movies',
             'opinion', 'politics', 'realestate',
-            'sports', 'sundayreview', 'technology', 't-magazine', 'travel', 'world'
+            'sports', 'technology', 't-magazine', 'travel', 'world'
         ]
 
         let buttons = categories.map(category => <button name={category} key={uuid_v4()} onClick={e => handleClick(e.target.name)}>{category.toUpperCase()}</button>)
