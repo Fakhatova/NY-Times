@@ -18,7 +18,7 @@ const NavBar = ({ setTopArticles, handleClick, category}) => {
         staleTime:200000,
     }
 
-    const { isLoading, error, data, isFetching, refetch} = useQuery(category, fetchCategory, useQueryParams)
+    const { isLoading, error, data, isFetching} = useQuery(category, fetchCategory, useQueryParams)
 
 
     useEffect(() => {
