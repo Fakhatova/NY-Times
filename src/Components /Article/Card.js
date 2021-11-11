@@ -12,7 +12,7 @@ const Card = ({article}) => {
                 <p className='article-intro'>
                     {article.abstract}
                 </p>
-                <button><a target="_blank" href={url} rel="noreferrer">View Article</a></button>
+                <button><a target="_blank" href={url} rel="noreferrer">Visit original source</a></button>
             </article>
             <article className='image-container'>
             {article && article.multimedia && <img src={article.multimedia[0].url} alt={article.multimedia[0].type}/>}

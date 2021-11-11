@@ -1,33 +1,30 @@
 import Card from "./Card"
 import { useEffect, useState } from "react";
 import { v4 as uuid_v4 } from "uuid";
+import { Link } from "react-router-dom";
 
-const Article = ({topArticles}) => {
-    const [displayArticles, setDisplayArticles] = useState(null);
+const Article = ({topArticles, setArticle}) => {
+    // const [displayArticles, setDisplayArticles] = useState(null);
     const [title, setTitle] = useState(null)
-    const [image, setImage] = useState(null)
 
     useEffect(() => {
     if (topArticles) {
         let titleResult = topArticles.map(article =>
+            <Link key={uuid_v4()}  to='/article' element={<Card key={uuid_v4()} article={article}/>} onClick={() => setArticle(article)}> 
             <section key={uuid_v4()}>
                 <h2>{article.title}</h2>
-                <img src={article.multimedia[0].url} alt='image'/>
+                <img src={article.multimedia[0].url} alt={article.multimedia[0].format}/>
             </section>
+            </Link>
             )
-
-        let result = topArticles.map(article => <Card key={uuid_v4()} article={article}/>) 
         setTitle(titleResult)
-        setDisplayArticles(result)
     }   
-    }, [topArticles])
+    }, [topArticles,setArticle])
     
 
     return (
         <main className='article-container'>
             {title}
-            {/* {image} */}
-            {/* {displayArticles} */}
         </main>
     )
 }

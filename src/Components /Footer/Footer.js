@@ -1,5 +1,4 @@
 
-
 const Footer = ({copyRights}) => {
     return (
         <footer>
