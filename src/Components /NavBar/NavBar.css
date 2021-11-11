@@ -20,7 +20,8 @@
 }
 
 .title {
-    border-bottom: .5px solid #0000003b
+    border-bottom: .5px solid #0000003b;
+    color: black;
 }
 
 .category-container {
@@ -29,8 +30,23 @@
     justify-content: space-evenly;
     width: 100%;
 }
+
 button {
     cursor: pointer;
     width: 100px;
-    height: 40px;
+    height: 25px;
+    border: transparent;
+    border-radius: 3px;
+    background: black;
+    color: #ffffffc4;
+}
+
+button:hover {
+    cursor: pointer;
+    width: 100px;
+    height: 25px;
+    border: transparent;
+    border-radius: 3px;
+    background: #00000069;
+    color: black;
 }
