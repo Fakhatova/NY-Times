@@ -1,6 +1,5 @@
 
 .App {
-    height: 100vh;
     margin: 0;
     background-color: #FFFFFF;
 }
@@ -54,6 +53,8 @@ img {
     height: 100%;
     flex-direction: column;
     flex-wrap: wrap;
+    box-shadow: 0 0 50px #ccc;
+    width: 100%;
 }
 
 .intro-title {
@@ -73,7 +74,7 @@ img {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 60px;
+    margin: 20px 0 20px 0;
 }
 
 footer {
@@ -83,4 +84,5 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: x-large;
+    background-color: #4343434a;
 }
