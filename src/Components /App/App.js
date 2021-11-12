@@ -17,7 +17,6 @@ const  App = () => {
   /******************************************/
       /* SET CATEGORY FOR FETCH ON CLICK */
   /******************************************/
-  
   const handleClick = (val) => {
     setCategory(val)
   }

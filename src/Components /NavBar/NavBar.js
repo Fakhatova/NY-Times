@@ -11,10 +11,10 @@ return categoryData;
 }
 
 const NavBar = ({ setTopArticles, handleClick, category}) => {
+
     /******************************************/
               /* QUERY PARAMS */
     /******************************************/
-
     const useQueryParams = {
         keepPreviousData: true,
         refetchWindowFocus: false,
@@ -25,8 +25,6 @@ const NavBar = ({ setTopArticles, handleClick, category}) => {
     /******************************************/
                 /* QUERY */
     /******************************************/
-
-
     const { isLoading, error, data, isFetching} = useQuery(category, fetchCategory, useQueryParams)
 
 
@@ -47,6 +45,9 @@ const NavBar = ({ setTopArticles, handleClick, category}) => {
             'sports', 'technology', 't-magazine', 'travel', 'world'
         ]
 
+    /******************************************/
+         /* POPULATE CATEGORY BUTTONS */
+    /******************************************/
         let buttons = categories.map(category => 
         <button name={category} 
         key={uuid_v4()} 
