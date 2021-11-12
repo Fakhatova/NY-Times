@@ -12,7 +12,12 @@ const  App = () => {
   const [article, setArticle]= useState()
   const [category, setCategory] = useState('home')
   const copyright = 'Copyright (c) 2021 The New York Times Company. All Rights Reserved.'
+  
 
+  /******************************************/
+      /* SET CATEGORY FOR FETCH ON CLICK */
+  /******************************************/
+  
   const handleClick = (val) => {
     setCategory(val)
   }

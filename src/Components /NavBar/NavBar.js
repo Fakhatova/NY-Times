@@ -4,12 +4,16 @@ import { useEffect} from "react";
 import { nyTimesData } from "../../API/ApiCalls";
 import { useQuery} from "react-query";
 
+
 const fetchCategory = async (category) => {
 const categoryData = await nyTimesData.fetchCategory(category.queryKey[0])
 return categoryData;
 }
 
 const NavBar = ({ setTopArticles, handleClick, category}) => {
+    /******************************************/
+              /* QUERY PARAMS */
+    /******************************************/
 
     const useQueryParams = {
         keepPreviousData: true,
@@ -17,6 +21,11 @@ const NavBar = ({ setTopArticles, handleClick, category}) => {
         refetchOnMount: false,
         staleTime:200000,
     }
+
+    /******************************************/
+                /* QUERY */
+    /******************************************/
+
 
     const { isLoading, error, data, isFetching} = useQuery(category, fetchCategory, useQueryParams)
 
