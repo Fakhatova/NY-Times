@@ -4,13 +4,17 @@ import { useEffect} from "react";
 import { nyTimesData } from "../../API/ApiCalls";
 import { useQuery} from "react-query";
 
+
 const fetchCategory = async (category) => {
 const categoryData = await nyTimesData.fetchCategory(category.queryKey[0])
 return categoryData;
 }
 
-const NavBar = ({ setTopArticles, handleClick, category, setCopyRight}) => {
+const NavBar = ({ setTopArticles, handleClick, category}) => {
 
+    /******************************************/
+              /* QUERY PARAMS */
+    /******************************************/
     const useQueryParams = {
         keepPreviousData: true,
         refetchWindowFocus: false,
@@ -18,6 +22,9 @@ const NavBar = ({ setTopArticles, handleClick, category, setCopyRight}) => {
         staleTime:200000,
     }
 
+    /******************************************/
+                /* QUERY */
+    /******************************************/
     const { isLoading, error, data, isFetching} = useQuery(category, fetchCategory, useQueryParams)
 
 
@@ -27,20 +34,27 @@ const NavBar = ({ setTopArticles, handleClick, category, setCopyRight}) => {
     if (error) return "An error has occurred: " + error.message;
     
     if(!isFetching && data) return setTopArticles(data.results)
-
-    setCopyRight(data.copyright)
     
-    }, [data, isLoading,error, isFetching, category,setTopArticles, setCopyRight])
+    }, [data, isLoading,error, isFetching, category,setTopArticles])
 
 
         const categories = [
             'arts', 'books', 'business', 
             'health', 'movies',
             'opinion', 'politics', 'realestate',
-            'sports', 'sundayreview', 'technology', 't-magazine', 'travel', 'world'
+            'sports', 'technology', 't-magazine', 'travel', 'world'
         ]
 
-        let buttons = categories.map(category => <button name={category} key={uuid_v4()} onClick={e => handleClick(e.target.name)}>{category.toUpperCase()}</button>)
+    /******************************************/
+         /* POPULATE CATEGORY BUTTONS */
+    /******************************************/
+        let buttons = categories.map(category => 
+        <button name={category} 
+        key={uuid_v4()} 
+        onClick={e => handleClick(e.target.name)}>
+            {category.toUpperCase()}
+            </button>
+            )
         
     return (
         <header className='header'>
