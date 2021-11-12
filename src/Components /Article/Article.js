@@ -8,11 +8,13 @@ const Article = ({topArticles, setArticle}) => {
 
     useEffect(() => {
     if (topArticles) {
-        let titleResult = topArticles.map(article =>
-            <Link key={uuid_v4()} className='singleCard' to='/article' element={<Card key={uuid_v4()} article={article}/>} onClick={() => setArticle(article)}> 
+        let titleResult = topArticles.map(article => 
+            <Link key={uuid_v4()} className='singleCard' to='/article' 
+            element={<Card key={uuid_v4()} article={article}/>} 
+            onClick={() => setArticle(article)}> 
             <section key={uuid_v4()} className='intro-card'>
                 <h2 className='intro-title'>{article.title}</h2>
-                <img className='intro-image' src={article.multimedia[0].url} alt={article.multimedia[0].format}/>
+                {article && article.multimedia &&  <img className='intro-image' src={article.multimedia[0].url} alt={article.multimedia[0].format}/> }
             </section>
             </Link>
             )

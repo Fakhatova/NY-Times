@@ -13,7 +13,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    font-family: 'Aladin', cursive, 'Berkshire Swash', cursive, 'Fondamento', cursive;
+    /* font-family: 'Aladin', cursive; */
     font-size: xxx-large;
     border-bottom: 1px solid black;
     background-color: #4343434a;

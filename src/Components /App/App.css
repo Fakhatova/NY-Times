@@ -15,25 +15,25 @@
 }
 
 section {
+    height: 100vh;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-content: center;
+    justify-content: space-around;
 }
 
 .title-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 300px;
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
 }
 
-/* .article-title {
-    font-size: xx-large;
+.article-title {
+    font-size: x-large;
+    border-bottom: 1px solid #4338384f;
 
 }
 
@@ -43,8 +43,8 @@ section {
 
 
 img {
-    width: 500px;
-} */
+    width: 800px;
+}
 
 .intro-card {
     display: flex;
@@ -59,6 +59,7 @@ img {
 
 .intro-title {
     font-size: medium;
+    align-self: center;
 }
 
 .intro-image {
@@ -78,11 +79,47 @@ img {
 }
 
 footer {
-    height: 100px;
+    height: 80px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: x-large;
     background-color: #4343434a;
+}
+
+.credit-warpper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    font-size: larger;
+}
+
+.absctract {
+    width: 700px;
+    text-align: center;
+}
+
+.link {
+    width: 150px;
+    height: 40px;
+    background: rgb(125, 125, 125);
+    cursor: pointer;
+}
+
+.link:hover {
+    width: 150px;
+    height: 40px;
+    background: rgb(125, 125, 125);
+    cursor: pointer;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
 }

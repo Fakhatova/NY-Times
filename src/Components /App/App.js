@@ -11,7 +11,7 @@ const  App = () => {
   const [topArticles, setTopArticles] = useState()
   const [article, setArticle]= useState()
   const [category, setCategory] = useState('home')
-  const [copyright, setCopyRight] = useState('Copyright (c) 2021 The New York Times Company. All Rights Reserved.')
+  const copyright = 'Copyright (c) 2021 The New York Times Company. All Rights Reserved.'
 
   const handleClick = (val) => {
     setCategory(val)
@@ -22,8 +22,8 @@ const  App = () => {
       <Routes>
         <Route path="/" element={
         <>
-        <NavBar setTopArticles={setTopArticles} handleClick={handleClick} category={category} setCopyRight={setCopyRight} /> 
-        <Article topArticles={topArticles} setArticle={setArticle} /> 
+        <NavBar setTopArticles={setTopArticles} handleClick={handleClick} category={category} /> 
+        <Article topArticles={topArticles} setArticle={setArticle}/> 
         <Footer copyRights={copyright}/>
         </>
       }/>
